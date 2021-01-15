@@ -1,0 +1,10 @@
+.DS_Store
+/logs
+/test
+/npm-debug.log
+/node_modules
+packge-lock.json
+.idea
+.eslintrc
+.eslintignore
+.git

@@ -1,0 +1,50 @@
+{
+  "name": "@hanwha-blockchain/ha-ethereum-module-eoa-validator-module-registry",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "author": "Mingyun Park",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanwha-blockchain/ha-ethereum-module-eoa-validator-module-registry.git",
+            https://github.com/hanwha-mingyun/ha-ethereum-module-eoa-validator-module-registry.git
+
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/hanwha-blockchain"
+  },
+  "files": [
+    "lib/**/*",
+    "static/*"
+  ],
+  "dependencies": {
+    "@hanwha-blockchain/ha-ethereum-module-common": "0.0.15",
+    "@hanwha-blockchain/ha-ethereum-module-trusted-group-recipient-validator": "^0.1.0",
+    "@hanwha-blockchain/ha-ethereum-module-trusted-group-sender-validator": "^0.1.0",
+    "typescript": "^3.9.7",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@hanwha-blockchain/ha-luniverse-wrapper": "0.0.7",
+    "request": "^2.88.2",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^2.2.41",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --compilers ts:ts-node/register '**/test/*.test.ts'",
+    "start": "npm run build && ts-node ./build/main.js",
+    "build": "rm -rf ./lib/* && ./node_modules/.bin/tsc",
+    "build-linux": "rm -rf ./dist/* && pkg src --out-path dist --targets node10-linux-x64",
+    "docker": "npm run build && npm run build-linux && cd  && ./build_push.sh",
+    "ts-config": "ts-node src/ts-config.ts"
+  }
+}
